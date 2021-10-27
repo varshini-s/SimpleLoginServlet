@@ -31,9 +31,10 @@ public class LoginServlet  extends HttpServlet {
         String userID = getServletConfig().getInitParameter("user");
         String password = getServletConfig().getInitParameter("password");
         Pattern namePattern = Pattern.compile(NAME_PATTERN);
+        Pattern passwordPattern = Pattern.compile(PASSWORD_PATERN);
 
 
-        if(namePattern.matcher(user).matches() && password.equals(pwd)){
+        if(namePattern.matcher(user).matches() && passwordPattern.matcher(pwd).matches()){
             request.setAttribute("user", user);
             request.getRequestDispatcher("LoginSuccess.jsp").forward(request, response);
 
