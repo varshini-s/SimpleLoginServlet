@@ -13,11 +13,8 @@ import java.util.regex.Pattern;
 
 @WebServlet(
         description = "Login servlet",
-        urlPatterns = {"/LoginServlet"},
-        initParams = {
-                @WebInitParam(name="user", value="Emma"),
-                @WebInitParam(name="password", value="abc@123"),
-        }
+        urlPatterns = {"/LoginServlet"}
+
 )
 public class LoginServlet  extends HttpServlet {
 
@@ -28,8 +25,6 @@ public class LoginServlet  extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String user = request.getParameter("user");
         String pwd = request.getParameter("pwd");
-        String userID = getServletConfig().getInitParameter("user");
-        String password = getServletConfig().getInitParameter("password");
         Pattern namePattern = Pattern.compile(NAME_PATTERN);
         Pattern passwordPattern = Pattern.compile(PASSWORD_PATERN);
 
